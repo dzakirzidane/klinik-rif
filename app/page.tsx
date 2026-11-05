@@ -8,7 +8,7 @@ import ScrollProgress from "./components/ScrollProgress";
 import ServiceSlider from "./components/ServiceSlider";
 import { ThemeToggle } from "./components/theme-toggle";
 
-const WA_LINK = "https://wa.me/628128750034";
+const WA_LINK = "https://wa.me/6281288683282";
 const IG_LINK = "https://www.instagram.com/klinikrif_official";
 const ALAMAT =
   "Jl. Borobudur Raya No. 78, Perumnas 2, Bencongan, Kecamatan Kelapa Dua, Kabupaten Tangerang, Banten 15810";
@@ -293,7 +293,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="hover:opacity-60"
                   >
-                    WhatsApp: 0812-8750-034
+                    WhatsApp: 0812-8868-3282
                   </a>
                 </li>
                 <li>
