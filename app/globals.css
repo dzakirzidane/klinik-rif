@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+/* Dark mode berbasis class (dipakai next-themes) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --paper: #ebe8e3; /* background utama (cream) */
+  --ink: #0e0e0e; /* warna teks utama */
+  --surface: #ffffff; /* section putih & kartu */
+  --deep: #0e0e0e; /* section gelap (layanan, footer) */
+  --accent: #0e0e0e; /* tombol utama */
+  --accent-fg: #ffffff; /* teks di atas tombol utama */
+  --line: rgba(0, 0, 0, 0.1);
+  color-scheme: light;
+}
+
+.dark {
+  --paper: #0c0d0f;
+  --ink: #ece9e3;
+  --surface: #141517;
+  --deep: #08090a;
+  --accent: #ece9e3;
+  --accent-fg: #0e0e0e;
+  --line: rgba(255, 255, 255, 0.12);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-sans: var(--font-montserrat);
+  --font-serif: var(--font-playfair);
+  --color-cream: var(--paper);
+  --color-ink: var(--ink);
+  --color-surface: var(--surface);
+  --color-deep: var(--deep);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-line: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise {
+  animation: rise 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-rise-delay {
+  animation: rise 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+}
+
+/* Tahan animasi hero selama splash screen tampil */
+html[data-splash="on"] .animate-rise,
+html[data-splash="on"] .animate-rise-delay {
+  animation-play-state: paused;
+}
+
+/* Animasi splash screen */
+@keyframes splash-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes splash-bar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.splash-logo {
+  animation: splash-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+.splash-tag {
+  animation: splash-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.8s both;
+}
+
+.splash-bar {
+  transform-origin: left;
+  animation: splash-bar 2.4s cubic-bezier(0.65, 0, 0.35, 1) 0.1s both;
+}
